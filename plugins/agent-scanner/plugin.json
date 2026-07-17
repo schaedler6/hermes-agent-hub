@@ -1,0 +1,20 @@
+{
+  "id": "agent-scanner",
+  "name": "Agent Scanner",
+  "version": "0.1.0",
+  "author": "Sid Schaedler",
+  "description": "Discovers AI agents and runtimes installed locally on your Windows machine.",
+  "category": "agents",
+  "entrypoint": "scan.ps1",
+  "enabled": true,
+  "supportedPlatforms": ["windows"],
+  "minimumHermesVersion": "0.1.0",
+  "trustLevel": "builtin",
+  "permissions": [
+    "filesystem.read",
+    "process.read"
+  ],
+  "outputs": [
+    "agents"
+  ]
+}

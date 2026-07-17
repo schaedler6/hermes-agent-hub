@@ -1,0 +1,19 @@
+{
+  "id": "skills-scanner",
+  "name": "Skills Scanner",
+  "version": "0.1.0",
+  "author": "Sid Schaedler",
+  "description": "Scans and validates compliance and static security checks for local Agent Skills (SKILL.md).",
+  "category": "skills",
+  "entrypoint": "scan.ps1",
+  "enabled": true,
+  "supportedPlatforms": ["windows"],
+  "minimumHermesVersion": "0.1.0",
+  "trustLevel": "builtin",
+  "permissions": [
+    "filesystem.read"
+  ],
+  "outputs": [
+    "skills"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "plugin-valido",
+  "name": "Plugin Valido Fixture",
+  "version": "0.1.0",
+  "author": "Tester",
+  "description": "Valid plugin for unit testing.",
+  "category": "examples",
+  "entrypoint": "scan.ps1",
+  "enabled": true,
+  "supportedPlatforms": ["windows"],
+  "minimumHermesVersion": "0.1.0",
+  "permissions": ["filesystem.read"],
+  "outputs": ["examples"]
+}

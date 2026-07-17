@@ -1,0 +1,24 @@
+{
+  "customSearchPaths": [
+    "C:\\caminho\\para\\seus\\agentes\\customizados"
+  ],
+  "skillSearchPaths": [
+    "$HOME\\.hermes\\skills",
+    "$HOME\\.claude\\skills",
+    "$HOME\\.codex\\skills"
+  ],
+  "externalCommandTimeoutMs": 2000,
+  "exclucoes": [
+    "node_modules",
+    "Temp",
+    "cache"
+  ],
+  "pluginPaths": [
+    ".\\plugins"
+  ],
+  "allowThirdPartyPlugins": false,
+  "enabledPlugins": [
+    "agent-scanner",
+    "skills-scanner"
+  ]
+}

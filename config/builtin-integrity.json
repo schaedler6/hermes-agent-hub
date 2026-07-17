@@ -1,0 +1,32 @@
+{
+  "agent-scanner": {
+    "pluginId": "agent-scanner",
+    "version": "0.1.0",
+    "approvedAt": "2026-07-17T00:50:04Z",
+    "algorithm": "SHA256",
+    "files": {
+      "plugin.json": "12fb7f18d88609e5f04d23682d2f88ac06abf6c1827fabddf77843c45ed52a8e",
+      "scan.ps1": "c733c90c0ad37fcbc5ae303153da19160d884c66e653b8d9e56dbdf91375e58f"
+    }
+  },
+  "hello-plugin": {
+    "pluginId": "hello-plugin",
+    "version": "0.1.0",
+    "approvedAt": "2026-07-17T00:50:45Z",
+    "algorithm": "SHA256",
+    "files": {
+      "plugin.json": "78ed8e9db3871424c94d2152eb8aeeded3241c10120d66d9855d0cdfa8112df5",
+      "scan.ps1": "7f31532d1001a53112f7523cd099f9bdf6eb24d9fa7819c97b036e7acd32ce37"
+    }
+  },
+  "skills-scanner": {
+    "pluginId": "skills-scanner",
+    "version": "0.1.0",
+    "approvedAt": "2026-07-17T00:54:09Z",
+    "algorithm": "SHA256",
+    "files": {
+      "plugin.json": "0e10982ef69ed086e82f2e14947592001ae4cf1472dcbad98bd4e2d38bc244cb",
+      "scan.ps1": "ac7f73052a5885de7ef4c9dd221cd70bdeef451d8100c18aca2f85272a1e1dbf"
+    }
+  }
+}

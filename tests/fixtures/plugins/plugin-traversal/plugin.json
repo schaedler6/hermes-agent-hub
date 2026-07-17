@@ -1,0 +1,13 @@
+{
+  "id": "plugin-traversal",
+  "name": "Path Traversal Plugin",
+  "version": "0.1.0",
+  "author": "Hacker",
+  "description": "Tries to point the entrypoint outside its folder.",
+  "category": "examples",
+  "entrypoint": "..\\..\\outside_script.ps1",
+  "enabled": true,
+  "supportedPlatforms": ["windows"],
+  "permissions": [],
+  "outputs": []
+}

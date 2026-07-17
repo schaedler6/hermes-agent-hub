@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SID // HERMES AGENT HUB</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Partículas animadas de background e orbe de brilho -->
+    <div id="particles-container"></div>
+    <div class="orbe-background"></div>
+
+    <div class="app-container">
+        <!-- Sidebar Moderna -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <img src="../assets/logo.svg" alt="Hermes Logo" class="brand-img">
+                <div class="brand-title">HERMES HUB</div>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <a href="#" class="menu-item active" data-target="dashboard" id="menu-dashboard">
+                    <span class="menu-icon">📊</span> Dashboard
+                </a>
+                <a href="#" class="menu-item" data-target="agents" id="menu-agents">
+                    <span class="menu-icon">🤖</span> Agents
+                </a>
+                <a href="#" class="menu-item" data-target="models" id="menu-models">
+                    <span class="menu-icon">🧠</span> Models
+                </a>
+                <a href="#" class="menu-item" data-target="skills" id="menu-skills">
+                    <span class="menu-icon">⚡</span> Skills
+                </a>
+                <a href="#" class="menu-item" data-target="plugins" id="menu-plugins">
+                    <span class="menu-icon">🔌</span> Plugins
+                </a>
+                <a href="#" class="menu-item" data-target="kb" id="menu-kb">
+                    <span class="menu-icon">📚</span> Knowledge Base
+                </a>
+                <a href="#" class="menu-item" data-target="mcp" id="menu-mcp">
+                    <span class="menu-icon">🔌</span> MCP Servers
+                </a>
+                <a href="#" class="menu-item" data-target="workflows" id="menu-workflows">
+                    <span class="menu-icon">⛓️</span> Workflows
+                </a>
+                <a href="#" class="menu-item" data-target="settings" id="menu-settings">
+                    <span class="menu-icon">⚙️</span> Settings
+                </a>
+                <a href="#" class="menu-item" data-target="logs" id="menu-logs">
+                    <span class="menu-icon">📝</span> Logs
+                </a>
+                <a href="#" class="menu-item" data-target="about" id="menu-about">
+                    <span class="menu-icon">ℹ️</span> About
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">H</div>
+                    <div class="user-info">
+                        <span class="user-name">Hermes Operator</span>
+                        <span class="user-role">Operator / Local User</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Área Principal de Conteúdo -->
+        <main class="main-content">
+            <!-- Cabeçalho Principal -->
+            <header class="main-header">
+                <div class="header-title">
+                    <h1 id="main-title">SID // HERMES AGENT HUB</h1>
+                    <p id="main-subtitle">Discover and organize every AI agent installed on your machine.</p>
+                </div>
+                <div class="header-status">
+                    <span class="status-indicator-dot online"></span>
+                    <span class="status-text">Hermes Core Active</span>
+                </div>
+            </header>
+
+            <!-- ========================================== -->
+            <!-- VIEW: DASHBOARD (Home) -->
+            <!-- ========================================== -->
+            <section id="view-dashboard" class="view-section active">
+                <!-- Card de Boas-vindas Dinâmico -->
+                <div class="welcome-banner card">
+                    <div class="welcome-text">
+                        <h2>Bom dia, Sidinei.</h2>
+                        <p>Sistema Hermes iniciado com sucesso. Todos os módulos locais estão prontos para varredura e gerenciamento.</p>
+                    </div>
+                    <div class="welcome-action">
+                        <button class="btn-primary" id="btn-run-scan-info" onclick="triggerScanAdvice()">
+                            ⚙️ Scanner Local
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Estatísticas e Contadores Rápidos -->
+                <div class="stats-grid">
+                    <div class="card stat-card">
+                        <span class="stat-icon blue">🤖</span>
+                        <div class="stat-info">
+                            <h4>Agentes</h4>
+                            <p class="stat-value" id="cnt-agents">0</p>
+                            <span class="stat-label">Detectados no sistema</span>
+                        </div>
+                    </div>
+                    <div class="card stat-card">
+                        <span class="stat-icon cian">⚡</span>
+                        <div class="stat-info">
+                            <h4>Skills</h4>
+                            <p class="stat-value" id="cnt-skills">2</p>
+                            <span class="stat-label">Habilidades ativas</span>
+                        </div>
+                    </div>
+                    <div class="card stat-card">
+                        <span class="stat-icon purple">🧠</span>
+                        <div class="stat-info">
+                            <h4>Modelos</h4>
+                            <p class="stat-value" id="cnt-models">3</p>
+                            <span class="stat-label">Modelos locais ativos</span>
+                        </div>
+                    </div>
+                    <div class="card stat-card">
+                        <span class="stat-icon gold">🔌</span>
+                        <div class="stat-info">
+                            <h4>MCP</h4>
+                            <p class="stat-value" id="cnt-mcp">0</p>
+                            <span class="stat-label">Servidores configurados</span>
+                        </div>
+                    </div>
+                    <div class="card stat-card">
+                        <span class="stat-icon green">⛓️</span>
+                        <div class="stat-info">
+                            <h4>Workflows</h4>
+                            <p class="stat-value" id="cnt-workflows">0</p>
+                            <span class="stat-label">Automações criadas</span>
+                        </div>
+                    </div>
+                    <div class="card stat-card">
+                        <span class="stat-icon violet">📚</span>
+                        <div class="stat-info">
+                            <h4>Knowledge</h4>
+                            <p class="stat-value" id="cnt-kb">527</p>
+                            <span class="stat-label">Notas indexadas RAG</span>
+                        </div>
+                    </div>
+                    <div class="card stat-card">
+                        <span class="stat-icon pink">🔌</span>
+                        <div class="stat-info">
+                            <h4>Plugins</h4>
+                            <p class="stat-value" id="cnt-plugins">0</p>
+                            <span class="stat-label">Módulos carregados</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resumo da Máquina e Status Geral -->
+                <div class="system-summary-container">
+                    <div class="card system-summary-card">
+                        <h3>Status Geral do Sistema</h3>
+                        <div class="summary-status-row">
+                            <span class="summary-dot green"></span>
+                            <p><strong>Runtimes Locais:</strong> Todos os subsistemas e sandbox de execução estão operando de forma segura.</p>
+                        </div>
+                        <div class="summary-status-row">
+                            <span class="summary-dot green"></span>
+                            <p><strong>Isolamento de Segurança:</strong> Rígido controle de caminhos ativo. Sem acessos a dados externos.</p>
+                        </div>
+                    </div>
+                    <div class="card system-summary-card">
+                        <h3>Resumo do Laboratório</h3>
+                        <p class="summary-meta-text"><strong>Última verificação geral:</strong> <span id="dash-scanned-at">--/--/---- --:--:--</span></p>
+                        <p class="summary-meta-text"><strong>Diretório do workspace:</strong> <code>hermes-agent-hub/</code></p>
+                        <p class="summary-meta-text"><strong>Ambiente:</strong> Windows Localhost Execution</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================== -->
+            <!-- VIEW: AGENTS -->
+            <!-- ========================================== -->
+            <section id="view-agents" class="view-section">
+                <!-- Seção de Controles e Busca -->
+                <div class="controls-section card">
+                    <div class="search-box">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="search-input" placeholder="Buscar agentes pelo nome...">
+                    </div>
+                    <div class="filter-group">
+                        <div class="filter-select-wrapper">
+                            <label for="filter-category">Categoria:</label>
+                            <select id="filter-category">
+                                <option value="all">Todas as Categorias</option>
+                            </select>
+                        </div>
+                        <div class="filter-select-wrapper">
+                            <label for="filter-status">Status:</label>
+                            <select id="filter-status">
+                                <option value="all">Todos os Status</option>
+                                <option value="installed">Instalados</option>
+                                <option value="running">Em Execução</option>
+                                <option value="notfound">Não Encontrados</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grid de Agentes -->
+                <div class="agents-grid" id="agents-grid">
+                    <!-- Inserido dinamicamente via JS -->
+                </div>
+            </section>
+
+            <!-- ========================================== -->
+            <!-- VIEW: MODELS (COMING SOON) -->
+            <!-- ========================================== -->
+            <section id="view-models" class="view-section">
+                <div class="coming-soon-wrapper card">
+                    <span class="coming-soon-icon">🧠</span>
+                    <h2>Models Management</h2>
+                    <span class="badge-coming-soon">COMING SOON</span>
+                    <p>Interface dedicada para gerenciar, baixar e comparar a velocidade (tokens/s) de modelos de LLMs locais integrados via Ollama e LM Studio.</p>
+                </div>
+            </section>
+
+            <!-- ========================================== -->
+            <!-- VIEW: SKILLS -->
+            <!-- ========================================== -->
+            <section id="view-skills" class="view-section">
+                <!-- Painel de Estatísticas de Skills -->
+                <div class="stats-grid" style="margin-bottom: 24px;">
+                    <div class="card stat-card">
+                        <span class="stat-icon purple">⚡</span>
+                        <div class="stat-info">
+                            <h4>Total de Skills</h4>
+                            <p class="stat-value" id="skill-stat-total">0</p>
+                            <span class="stat-label">Habilidades locais</span>
+                        </div>
+                    </div>
+                    <div class="card stat-card">
+                        <span class="stat-icon green">✔</span>
+                        <div class="stat-info">
+                            <h4>Válidas</h4>
+                            <p class="stat-value" id="skill-stat-valid">0</p>
+                            <span class="stat-label">Sem erros de estrutura</span>
+                        </div>
+                    </div>
+                    <div class="card stat-card">
+                        <span class="stat-icon gold">⚠</span>
+                        <div class="stat-info">
+                            <h4>Com Avisos</h4>
+                            <p class="stat-value" id="skill-stat-warnings">0</p>
+                            <span class="stat-label">Alertas estruturais</span>
+                        </div>
+                    </div>
+                    <div class="card stat-card">
+                        <span class="stat-icon red">🚨</span>
+                        <div class="stat-info">
+                            <h4>Risco Alto</h4>
+                            <p class="stat-value" id="skill-stat-risk">0</p>
+                            <span class="stat-label">Heurísticas de perigo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controles e Filtros de Skills -->
+                <div class="controls-section card">
+                    <div class="search-box">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="skill-search-input" placeholder="Buscar skills pelo nome...">
+                    </div>
+                    <div class="filter-group">
+                        <div class="filter-select-wrapper">
+                            <label for="skill-filter-valid">Validade:</label>
+                            <select id="skill-filter-valid">
+                                <option value="all">Todas</option>
+                                <option value="valid">Válidas</option>
+                                <option value="invalid">Inválidas</option>
+                            </select>
+                        </div>
+                        <div class="filter-select-wrapper">
+                            <label for="skill-filter-risk">Risco:</label>
+                            <select id="skill-filter-risk">
+                                <option value="all">Todos os Riscos</option>
+                                <option value="low">Risco Baixo</option>
+                                <option value="medium">Risco Médio</option>
+                                <option value="high">Risco Alto</option>
+                            </select>
+                        </div>
+                        <div class="filter-select-wrapper">
+                            <label for="skill-filter-score">Score:</label>
+                            <select id="skill-filter-score">
+                                <option value="all">Qualquer Score</option>
+                                <option value="high">Alto (>80)</option>
+                                <option value="medium">Médio (50-80)</option>
+                                <option value="low">Baixo (<50)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grade de Cartões de Skills -->
+                <div class="agents-grid" id="skills-grid">
+                    <!-- Inserido dinamicamente via JS -->
+                </div>
+            </section>
+
+            <!-- ========================================== -->
+            <!-- VIEW: PLUGINS -->
+            <!-- ========================================== -->
+            <section id="view-plugins" class="view-section">
+                <!-- Painel de Estatísticas de Plugins -->
+                <div class="stats-grid" style="margin-bottom: 24px;">
+                    <div class="card stat-card">
+                        <span class="stat-icon pink">🔌</span>
+                        <div class="stat-info">
+                            <h4>Total de Plugins</h4>
+                            <p class="stat-value" id="plugin-stat-total">0</p>
+                            <span class="stat-label">Localizados na pasta</span>
+                        </div>
+                    </div>
+                    <div class="card stat-card">
+                        <span class="stat-icon green">✔</span>
+                        <div class="stat-info">
+                            <h4>Habilitados</h4>
+                            <p class="stat-value" id="plugin-stat-enabled">0</p>
+                            <span class="stat-label">Em execução ativa</span>
+                        </div>
+                    </div>
+                    <div class="card stat-card">
+                        <span class="stat-icon gold">💤</span>
+                        <div class="stat-info">
+                            <h4>Desabilitados</h4>
+                            <p class="stat-value" id="plugin-stat-disabled">0</p>
+                            <span class="stat-label">Inativos no config.json</span>
+                        </div>
+                    </div>
+                    <div class="card stat-card">
+                        <span class="stat-icon red">🚨</span>
+                        <div class="stat-info">
+                            <h4>Inválidos</h4>
+                            <p class="stat-value" id="plugin-stat-invalid">0</p>
+                            <span class="stat-label">Erros de validação</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabela de Plugins -->
+                <div class="card" style="padding: 24px; overflow-x: auto; border: 1px solid rgba(255, 255, 255, 0.05); background: rgba(10, 10, 12, 0.4); backdrop-filter: blur(12px);">
+                    <h3 style="margin-bottom: 16px; font-family: 'Outfit', sans-serif; font-size: 1.25rem;">Plugins Instalados</h3>
+                    <table class="mcp-table" style="width: 100%; border-collapse: collapse; text-align: left;">
+                        <thead>
+                            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 12px;">
+                                <th style="padding: 12px; color: var(--color-text-secondary); font-weight: 600;">Plugin</th>
+                                <th style="padding: 12px; color: var(--color-text-secondary); font-weight: 600;">Confiança (Declarada / Efetiva)</th>
+                                <th style="padding: 12px; color: var(--color-text-secondary); font-weight: 600;">Integridade</th>
+                                <th style="padding: 12px; color: var(--color-text-secondary); font-weight: 600;">Aprovação (Versão / Data)</th>
+                                <th style="padding: 12px; color: var(--color-text-secondary); font-weight: 600;">Status</th>
+                                <th style="padding: 12px; color: var(--color-text-secondary); font-weight: 600;">Permissões</th>
+                                <th style="padding: 12px; color: var(--color-text-secondary); font-weight: 600;">Motivo do Bloqueio / Conformidade</th>
+                            </tr>
+                        </thead>
+                        <tbody id="plugins-table-body" style="font-size: 0.9rem;">
+                            <!-- Preenchido via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ========================================== -->
+            <!-- VIEW: KNOWLEDGE BASE (COMING SOON) -->
+            <!-- ========================================== -->
+            <section id="view-kb" class="view-section">
+                <div class="coming-soon-wrapper card">
+                    <span class="coming-soon-icon">📚</span>
+                    <h2>AI Knowledge Base</h2>
+                    <span class="badge-coming-soon">COMING SOON</span>
+                    <p>Indexação semântica e busca local (RAG) integrada a cofres do Obsidian e bases de Markdown locais para expandir o contexto de prompts do Hermes.</p>
+                </div>
+            </section>
+
+            <!-- ========================================== -->
+            <!-- VIEW: MCP SERVERS -->
+            <!-- ========================================== -->
+            <section id="view-mcp" class="view-section">
+                <div class="mcp-section-header">
+                    <h2>Servidores MCP Localizados</h2>
+                    <p class="section-subtitle">Servidores de protocolo de contexto detectados a partir do Claude Desktop.</p>
+                </div>
+                <div class="mcp-grid" id="mcp-grid">
+                    <!-- Inserido dinamicamente via JS -->
+                </div>
+            </section>
+
+            <!-- ========================================== -->
+            <!-- VIEW: WORKFLOWS (COMING SOON) -->
+            <!-- ========================================== -->
+            <section id="view-workflows" class="view-section">
+                <div class="coming-soon-wrapper card">
+                    <span class="coming-soon-icon">⛓️</span>
+                    <h2>Workflow Automations</h2>
+                    <span class="badge-coming-soon">COMING SOON</span>
+                    <p>Encadeamento de tarefas e orquestração de multi-agentes locais para pipelines automatizadas de programação e geração de artefatos.</p>
+                </div>
+            </section>
+
+            <!-- ========================================== -->
+            <!-- VIEW: SETTINGS (COMING SOON) -->
+            <!-- ========================================== -->
+            <section id="view-settings" class="view-section">
+                <div class="coming-soon-wrapper card">
+                    <span class="coming-soon-icon">⚙️</span>
+                    <h2>System Settings</h2>
+                    <span class="badge-coming-soon">COMING SOON</span>
+                    <p>Edição visual do arquivo de configurações <code>config.json</code>, permitindo alterar limites de timeout e adicionar caminhos de busca customizados.</p>
+                </div>
+            </section>
+
+            <!-- ========================================== -->
+            <!-- VIEW: LOGS -->
+            <!-- ========================================== -->
+            <section id="view-logs" class="view-section">
+                <div class="logs-container card">
+                    <div class="logs-header">
+                        <h3>Console de Logs do Scanner</h3>
+                        <span class="badge info" id="log-status-badge">scan.log</span>
+                    </div>
+                    <div class="logs-terminal">
+                        <pre id="log-content-area">Aguardando leitura do arquivo de logs...</pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================== -->
+            <!-- VIEW: ABOUT -->
+            <!-- ========================================== -->
+            <section id="view-about" class="view-section">
+                <div class="about-container card">
+                    <h2>HERMES AGENT HUB</h2>
+                    <span class="badge success" style="width: fit-content; margin-top: 8px;">v0.3.0-rc.1</span>
+                    <p class="about-desc">O Hermes Agent Hub é uma plataforma open-source simplificada para descobrir, organizar e documentar agentes de IA instalados no seu computador.</p>
+                    
+                    <div class="about-specs">
+                        <div class="about-spec-row">
+                            <span>Licença:</span>
+                            <strong>MIT</strong>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Rodapé Unificado -->
+            <footer class="main-footer">
+                <p>Hermes Agent Hub MVP v0.1 • Última varredura: <span id="val-scanned-at">--/--/---- --:--:--</span></p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Modal de Detalhes do Agente -->
+    <div id="details-modal" class="modal">
+        <div class="modal-content card">
+            <span class="close-modal" id="close-modal-btn">&times;</span>
+            <div class="modal-header-info">
+                <span class="modal-agent-icon">🤖</span>
+                <h2 id="modal-agent-name">Nome do Agente</h2>
+                <span class="agent-badge" id="modal-agent-badge">Instalado</span>
+            </div>
+            <div class="modal-body-details">
+                <div class="detail-row">
+                    <span class="detail-label">Categoria:</span>
+                    <span class="detail-value" id="modal-agent-category">---</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Versão:</span>
+                    <span class="detail-value" id="modal-agent-version">---</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Executável:</span>
+                    <span class="detail-value" id="modal-agent-executable">---</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Caminho de Instalação:</span>
+                    <span class="detail-value code-text" id="modal-agent-path">---</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Método de Detecção:</span>
+                    <span class="detail-value" id="modal-agent-method">---</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Data da Verificação:</span>
+                    <span class="detail-value" id="modal-agent-scanned">---</span>
+                </div>
+                <div class="detail-notes-box">
+                    <h4>Observações de Varredura</h4>
+                    <p id="modal-agent-notes">Nenhuma observação.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal de Detalhes da Skill -->
+    <div id="skill-details-modal" class="modal">
+        <div class="modal-content card" style="width: 580px;">
+            <span class="close-modal" id="close-skill-modal-btn">&times;</span>
+            <div class="modal-header-info">
+                <span class="modal-agent-icon">⚡</span>
+                <h2 id="modal-skill-name">Nome da Habilidade</h2>
+                <span class="agent-badge" id="modal-skill-badge">Válida</span>
+            </div>
+            <div class="modal-body-details">
+                <div class="detail-row">
+                    <span class="detail-label">Origem da Pasta:</span>
+                    <span class="detail-value" id="modal-skill-source">---</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Score de Qualidade:</span>
+                    <span class="detail-value" id="modal-skill-score">---</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Nível de Risco:</span>
+                    <span class="detail-value" id="modal-skill-risk">---</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Caminho de Origem:</span>
+                    <span class="detail-value code-text" id="modal-skill-path">---</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Componentes Localizados:</span>
+                    <span class="detail-value" id="modal-skill-components" style="font-size: 0.8rem;">---</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Data da Análise:</span>
+                    <span class="detail-value" id="modal-skill-scanned">---</span>
+                </div>
+                
+                <div id="modal-skill-errors-box" class="detail-notes-box hidden" style="border-color: rgba(239,68,68,0.3); background-color: rgba(239,68,68,0.02);">
+                    <h4 style="color: var(--red-alert);">Erros Estruturais Detectados</h4>
+                    <ul id="modal-skill-errors-list" style="margin-left: 16px; font-size: 0.8rem; line-height: 1.4; color: var(--color-text-secondary);"></ul>
+                </div>
+                
+                <div id="modal-skill-warnings-box" class="detail-notes-box hidden" style="border-color: rgba(245,158,11,0.3); background-color: rgba(245,158,11,0.02);">
+                    <h4 style="color: #f59e0b;">Avisos & Alertas de Segurança</h4>
+                    <ul id="modal-skill-warnings-list" style="margin-left: 16px; font-size: 0.8rem; line-height: 1.4; color: var(--color-text-secondary);"></ul>
+                </div>
+                
+                <div class="detail-notes-box">
+                    <h4>Descrição da Habilidade</h4>
+                    <p id="modal-skill-notes" style="font-size: 0.85rem; line-height: 1.4;">Sem descrição.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carga de Dados e Logic Engine -->
+    <script src="data.js"></script>
+    <script src="skills-data.js"></script>
+    <script src="plugins-data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

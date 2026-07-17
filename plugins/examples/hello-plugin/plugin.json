@@ -1,0 +1,19 @@
+{
+  "id": "hello-plugin",
+  "name": "Hello Plugin",
+  "version": "0.1.0",
+  "author": "Sid Schaedler",
+  "description": "Example plugin demonstrating the extensibility structure.",
+  "category": "examples",
+  "entrypoint": "scan.ps1",
+  "enabled": false,
+  "supportedPlatforms": ["windows"],
+  "minimumHermesVersion": "0.1.0",
+  "trustLevel": "builtin",
+  "permissions": [
+    "filesystem.read"
+  ],
+  "outputs": [
+    "examples"
+  ]
+}

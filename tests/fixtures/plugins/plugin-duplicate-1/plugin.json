@@ -1,0 +1,13 @@
+{
+  "id": "plugin-duplicate",
+  "name": "Duplicate Plugin 1",
+  "version": "0.1.0",
+  "author": "Tester",
+  "description": "First instance of the duplicate ID plugin.",
+  "category": "examples",
+  "entrypoint": "scan.ps1",
+  "enabled": true,
+  "supportedPlatforms": ["windows"],
+  "permissions": [],
+  "outputs": []
+}

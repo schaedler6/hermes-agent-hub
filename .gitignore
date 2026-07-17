@@ -1,0 +1,34 @@
+# Logs de execução local
+logs/
+*.log
+
+# Editores e ambientes locais
+.vscode/
+.idea/
+.DS_Store
+
+# Dados locais gerados por varreduras reais
+data/agents.json
+data/agents.md
+data/skills.json
+data/skills.md
+dashboard/data.js
+dashboard/skills-data.js
+dashboard/plugins-data.js
+
+# Trust stores locais e integridades locais de terceiros
+data/plugin-trust.json
+data/trusted-integrity.json
+
+# Arquivos de configurações locais da máquina
+config.local.json
+
+# Diretórios de distribuição e empacotamento
+dist/
+dist_clean/
+
+# Backups e arquivos temporários
+*.bak
+*backup*
+*temp*
+*staging*

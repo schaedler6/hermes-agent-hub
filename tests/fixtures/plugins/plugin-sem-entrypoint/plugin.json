@@ -1,0 +1,13 @@
+{
+  "id": "plugin-sem-entrypoint",
+  "name": "Missing Entrypoint Plugin",
+  "version": "0.1.0",
+  "author": "Tester",
+  "description": "Valid format but the scan script file is missing.",
+  "category": "examples",
+  "entrypoint": "missing.ps1",
+  "enabled": true,
+  "supportedPlatforms": ["windows"],
+  "permissions": [],
+  "outputs": []
+}

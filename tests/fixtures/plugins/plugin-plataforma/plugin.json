@@ -1,0 +1,13 @@
+{
+  "id": "plugin-plataforma",
+  "name": "Non Supported Platform Plugin",
+  "version": "0.1.0",
+  "author": "Tester",
+  "description": "Supports linux only.",
+  "category": "examples",
+  "entrypoint": "scan.ps1",
+  "enabled": true,
+  "supportedPlatforms": ["linux"],
+  "permissions": [],
+  "outputs": []
+}
